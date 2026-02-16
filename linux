@@ -1,0 +1,245 @@
+1) What is Linux?
+Linux is an operating system (OS).
+An operating system is the middleman between:
+You (user)
+Applications (Chrome, Docker, Jenkins, etc.)
+Hardware (CPU, RAM, Disk, Network)
+
+Linux is:
+Open-source (anyone can see & modify code)
+Free (most of the time)
+Very stable and secure
+Used mostly on servers, cloud, DevOps, containers
+
+👉 Linux is not a single OS, it is a kernel.
+Different companies add tools and create Linux distributions:
+Ubuntu
+CentOS
+RHEL
+Amazon Linux
+**Linux is an open-source operating system kernel used to build secure, stable, multi-user operating systems mainly for servers and cloud environments.
+
+2)Difference between Unix and Linux?
+| Unix                | Linux               |
+| ------------------- | ------------------- |
+| Proprietary         | Open-source         |
+| Paid                | Mostly Free         |
+| Company owned       | Community driven    |
+| Used in old systems | Used everywhere now |
+
+Linux is an open-source Unix-like operating system, whereas Unix is proprietary and vendor-controlled.
+
+3️⃣ Difference between Linux vs Windows vs macOS?
+| Feature       | Linux          | Windows      | macOS         |
+| ------------- | -------------- | ------------ | ------------- |
+| Source        | Open           | Closed       | Closed        |
+| Cost          | Free           | Paid         | Paid          |
+| Usage         | Servers, Cloud | Personal PCs | Apple devices |
+| Security      | Very High      | Medium       | High          |
+| Customization | Very High      | Low          | Medium        |
+| DevOps        | Best           | Poor         | Medium        |
+
+Linux is preferred for servers due to security and flexibility, Windows is user-friendly for desktops, and macOS is Unix-based optimized for Apple hardware.
+
+4)🧠 Linux Architecture (From Scratch)?*********
+User
+ ↓
+Applications
+ ↓
+Shell
+ ↓
+Kernel
+ ↓
+Hardware
+
+1️⃣ Hardware Layer
+
+This is the physical part of the system:
+CPU
+RAM
+Hard Disk
+Network Card
+Keyboard, Mouse
+💡 Hardware cannot understand commands directly from users.
+
+2️⃣ Kernel (❤️ Heart of Linux)
+
+Kernel is the core of Linux.
+It acts like a traffic police 🚦 between:
+Applications
+Hardware
+Kernel responsibilities:
+Process management
+Memory management
+File system
+Device drivers
+Networking
+Security
+
+⚠️ If kernel crashes → system crashes
+
+Kernel is the core component of Linux that manages hardware resources and provides services to applications.
+
+Shell (Command Interpreter)
+
+3.Shell is a translator 🗣️
+It converts:
+👉 Human commands
+👉 Into kernel-understandable instructions
+
+Common shells:
+bash
+sh
+zsh
+
+4️⃣ What is a System Call?
+
+A system call is the mechanism through which a user-space program requests a service from the kernel.
+
+User programs cannot directly access hardware or kernel memory. Instead, they use system calls as a controlled interface.
+
+Examples:
+
+open() → open file
+
+read() → read data
+
+write() → write data
+
+fork() → create new process
+
+exec() → execute program
+
+System calls ensure secure communication between user space and kernel space.
+
+In simple words:
+System call = Gateway from user space to kernel space.
+
+5️⃣ What is User Space vs Kernel Space?
+User Space
+
+This is where applications and user programs run.
+It has limited privileges and cannot directly access hardware.
+
+Examples:
+
+nginx
+
+docker
+
+vim
+
+python scripts
+
+If an application crashes in user space, the system continues running.
+
+Kernel Space
+
+This is where the Linux kernel operates.
+It has full access to hardware and system memory.
+
+Responsibilities:
+
+Process scheduling
+
+Memory allocation
+
+Device drivers
+
+Networking stack
+
+File systems
+
+If a problem occurs in kernel space, it can crash the entire system.
+
+6️⃣ What happens when you run a command like ls?
+
+When you type ls, the following sequence happens:
+
+The shell reads the command.
+
+It searches for the executable in directories listed in the PATH variable.
+
+Once found (e.g., /bin/ls), it loads the program into memory.
+
+The program makes system calls like:
+
+open()
+
+read()
+
+The kernel processes these system calls and retrieves directory data.
+
+The output is sent back to user space.
+
+The shell prints the result to the terminal.
+
+Flow:
+
+User → Shell → System Call → Kernel → Hardware → Output
+
+This answer is very commonly asked in interviews.
+
+4️⃣ System Libraries
+🔹 English Explanation
+
+System libraries are pre-written code helpers.
+
+Applications use them to:
+
+Talk to kernel
+
+Avoid writing low-level code
+
+Example:
+
+glibc
+
+🔹 Real-Time Example
+
+When a program needs memory:
+👉 It calls library
+👉 Library calls kernel
+
+🔹 Interview Points
+
+Libraries provide APIs
+
+Bridge between apps & kernel
+
+🔹 Telugu Explanation
+
+System libraries ante ready-made helper code
+
+Apps direct ga kernel ni touch cheyavu
+👉 Library use chesi matladutayi
+
+5️⃣ Applications / User Space
+
+This is where users work.
+Includes:
+Terminal
+Browser
+Docker
+Jenkins
+Kubernetes tools
+Apps never directly access hardware.
+
+Architecture full explanation:
+Linux architecture follows a layered model. The user interacts with the system through the shell by running commands. 
+These commands invoke user-space utilities, which use system libraries like glibc. 
+The libraries internally make system calls to request services from the kernel. 
+The kernel, being the core of Linux, manages processes, memory, files, devices, networking, and communicates directly with the hardware.
+
+----------
+
+5) Kernel vs Shell
+| Feature          | Kernel       | Shell      |
+| ---------------- | ------------ | ---------- |
+| Role             | Core of OS   | Interface  |
+| Runs in          | Kernel space | User space |
+| Hardware access  | Yes          | No         |
+| User interaction | No           | Yes        |
+| Crash impact     | Whole system | Only shell |
+| Examples         | Process mgmt | bash, zsh  |
+
