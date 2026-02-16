@@ -243,3 +243,65 @@ The kernel, being the core of Linux, manages processes, memory, files, devices, 
 | Crash impact     | Whole system | Only shell |
 | Examples         | Process mgmt | bash, zsh  |
 
+7) What is Linux File System?
+
+Linux File System is a hierarchical structure used by the Linux OS to organize, store, retrieve, and manage data on storage devices. It follows a single-rooted tree structure starting from / (root directory).
+
+| Directory | Purpose              | DevOps Use Case    |
+| --------- | -------------------- | ------------------ |
+| `/`       | Root directory       | Starting point     |
+| `/bin`    | Essential binaries   | `ls`, `cp`, `mv`   |
+| `/etc`    | Configuration files  | Nginx, SSH configs |
+| `/var`    | Logs & variable data | App logs           |
+| `/home`   | User directories     | Dev user files     |
+| `/tmp`    | Temporary files      | Build temp files   |
+| `/opt`    | Optional software    | Custom apps        |
+| `/usr`    | User programs        | Installed packages |
+| `/dev`    | Device files         | Disk devices       |
+| `/proc`   | Process info         | Runtime info       |
+
+7.1)File Types in Linux
+
+| Symbol | Type             |
+| ------ | ---------------- |
+| `-`    | Regular file     |
+| `d`    | Directory        |
+| `l`    | Symbolic link    |
+| `c`    | Character device |
+| `b`    | Block device     |
+| `s`    | Socket           |
+| `p`    | Named pipe       |
+
+7.2) What is an Inode?
+
+An inode is a data structure that stores metadata about a file, but NOT the file name.
+It contains:
+File size
+Owner
+Permissions
+Timestamps
+Disk block location
+
+7.3) Hard Link vs Soft Link
+🔗 Hard Link
+Points to same inode
+Cannot cross filesystem
+Cannot link directory
+
+ln file1 file2
+
+🔗 Soft Link (Symbolic Link)
+
+Points to filename path
+Can cross filesystem
+Can link directory
+
+ln -s file1 symlink
+
+7.4) Difference between hard link and soft link?
+
+| Hard Link                            | Soft Link                  |
+| ------------------------------------ | -------------------------- |
+| Same inode                           | Different inode            |
+| Cannot cross filesystem              | Can cross filesystem       |
+| File exists even if original deleted | Broken if original deleted |
